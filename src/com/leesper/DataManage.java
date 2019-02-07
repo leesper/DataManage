@@ -29,10 +29,32 @@ public class DataManage {
 		}
 		System.out.println();
 	}
-//
-//	public void insertAtArray(int[] a, int n, int k) {｝
-//
-//	public void divThree(int[] a) {｝
+
+	public void insertAtArray(int[] a, int n, int k) {
+		if (k < 0 || k >= a.length) {
+			return;
+		}
+		
+		if (k == a.length - 1) {
+			a[k] = n;
+		} else {
+			for (int i = a.length - 1; i > k; i--) {
+				a[i] = a[i - 1];
+			}
+			a[k] = n;
+		}
+		showData(data, data.length);
+	}
+	
+	public void divThree(int[] a) {
+		System.out.println("数组中能被3整除的元素为：");
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] % 3 == 0) {
+				System.out.print(a[i] + " ");
+			}
+		}
+		System.out.println();
+	}
 //
 //	public void notice();
 	
@@ -46,6 +68,7 @@ public class DataManage {
 		System.out.println("************************");
 		System.out.println("请输入对应的数字进行操作：");
 	}
+	
 	public static void main(String[] args) {
 		DataManage dm = new DataManage();
 		while(true) {
@@ -56,11 +79,21 @@ public class DataManage {
 				dm.data = dm.insertData();
 				break;
 			case 2:
-				dm.showData(dm.data, dm.data.length);
+				if (dm.data != null) {
+					dm.showData(dm.data, dm.data.length);
+				}
 				break;
 			case 3:
+				System.out.println("请输入要插入的数据：");
+				int n = scan.nextInt();
+				System.out.println("请输入要插入数据的位置：");
+				int k = scan.nextInt();
+				dm.insertAtArray(dm.data, n, k);
 				break;
 			case 4:
+				if (dm.data != null) {
+					dm.divThree(dm.data);
+				}
 				break;
 			case 0:
 				return;
