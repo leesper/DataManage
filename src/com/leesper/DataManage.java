@@ -48,10 +48,15 @@ public class DataManage {
 	
 	public void divThree(int[] a) {
 		System.out.println("数组中能被3整除的元素为：");
-		for (int i = 0; i < a.length; i++) {
+		boolean found = false;
+		for (int i = 0; i < a.length && a[i] != 0; i++) {
 			if (a[i] % 3 == 0) {
+				found = true;
 				System.out.print(a[i] + " ");
 			}
+		}
+		if (!found) {
+			System.out.print("数组中不存在能被3整除的数据");
 		}
 		System.out.println();
 	}
