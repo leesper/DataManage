@@ -3,6 +3,10 @@ package com.leesper;
 import java.util.Scanner;
 
 public class DataManage {
+	/**
+	 * insert integers into array
+	 * @return array of integers
+	 */
 	public int[] insertData() {
 		int[] data = new int[NUM];
 		int count = 0;
@@ -22,6 +26,11 @@ public class DataManage {
 		return data;
 	}
 
+	/**
+	 * show integers in array
+	 * @param a array for showing
+	 * @param length length of array
+	 */
 	public void showData(int[] a, int length) {
 		System.out.println("数组元素为：");
 		for (int i = 0; i < length && a[i] != 0; i++) {
@@ -30,6 +39,12 @@ public class DataManage {
 		System.out.println();
 	}
 
+	/**
+	 * insert array at a position
+	 * @param a array to insert
+	 * @param n number to insert
+	 * @param k position to insert
+	 */
 	public void insertAtArray(int[] a, int n, int k) {
 		if (k < 0 || k >= a.length) {
 			return;
@@ -46,6 +61,10 @@ public class DataManage {
 		showData(data, data.length);
 	}
 	
+	/**
+	 * output elements in array divided by 3
+	 * @param a array of integers
+	 */
 	public void divThree(int[] a) {
 		System.out.println("数组中能被3整除的元素为：");
 		boolean found = false;
@@ -60,10 +79,11 @@ public class DataManage {
 		}
 		System.out.println();
 	}
-//
-//	public void notice();
 	
-	public void usage() {
+	/**
+	 * output usage information
+	 */
+	public void notice() {
 		System.out.println("************************");
 		System.out.println("1--插入数据");
 		System.out.println("2--显示所有数据");
@@ -77,7 +97,7 @@ public class DataManage {
 	public static void main(String[] args) {
 		DataManage dm = new DataManage();
 		while(true) {
-			dm.usage();
+			dm.notice();
 			int command = scan.nextInt();
 			switch (command) {
 			case 1:
